@@ -4,12 +4,15 @@ import { UpdateDepartmentDto } from './dto/update-department.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Department } from './entities/department.entity';
 import { Repository } from 'typeorm';
+import { Project } from 'src/projects/entities/project.entity';
 
 @Injectable()
 export class DepartmentsService {
   constructor(
     @InjectRepository(Department)
-    private readonly departmentRepository : Repository<Department>
+    private readonly departmentRepository : Repository<Department>,
+    @InjectRepository(Project)
+    private readonly projectRepository : Repository<Project>
   ){}
   create(createDepartmentDto: CreateDepartmentDto) {
     const new_department = this.departmentRepository.create(createDepartmentDto)
@@ -29,7 +32,13 @@ export class DepartmentsService {
     return this.departmentRepository.findOneOrFail({where : {id}});
   }
 
-  remove(id: number) {
-    return this.departmentRepository.delete(id);
+  async remove(id: number) {
+    const projects = await this.projectRepository.find({where: {department:{id}}})
+    for(const project of projects)
+    {
+      project.department = null;
+      await this.projectRepository.save(project)
+    }
+    return this.departmentRepository.delete(id)
   }
 }
