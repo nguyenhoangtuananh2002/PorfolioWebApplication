@@ -1,0 +1,31 @@
+.container {
+  margin-top: 30px;
+  width: 1500px;
+}
+
+  .avatar-img {
+    border-radius: 50%; // Makes the avatar circular
+    height: 150px; // Set a fixed height for the image
+    width: 150px; // Set a fixed width for the image
+    object-fit: cover; // Ensures the image covers the circle area
+    margin: 0 auto; // Centers the avatar image
+  }
+
+
+  ul {
+    list-style-type: none; // Removes default list bullets
+    padding-left: 0; // Removes padding
+    margin-top: 5px; // Adds space above the list
+  }
+
+  li {
+    font-size: 0.875rem; // Smaller font size for skills
+    color: #777; // Lighter gray color for skills
+  }
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

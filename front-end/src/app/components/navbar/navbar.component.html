@@ -1,0 +1,58 @@
+<div class="sidenav">
+  <div>
+    <a class="menu-header" (click)="toggleSubmenu('overview')"><i class="bi bi-trophy"></i> Overview</a>
+    <div class="submenu" [class.show]="activeMenu === 'overview'">
+      <a [routerLink]="['/dashboard/overview']"><i class="bi bi-hash"></i> About Us</a>
+      <a [routerLink]="['/dashboard/overview/orgchart']"><i class="bi bi-bar-chart-steps"></i> Org Chart</a>
+    </div>
+  </div>
+  <br>
+  <div>
+    <a class="menu-header" (click)="toggleSubmenu('department')"><i class="bi bi-house"></i> Teams</a>
+    <div class="submenu" [class.show]="activeMenu === 'department'">
+      <a [routerLink]="['/dashboard/department']"><i class="bi bi-hash"></i> Our Teams</a>
+      <a *ngIf="this.user.sub.is_admin"  [routerLink]="['/dashboard/department/create']"><i class="bi bi-bookmark-plus"></i> Create Team</a>
+    </div>
+  </div>
+  <br>
+  <div >
+    <a class="menu-header" (click)="toggleSubmenu('employee')"><i class="bi bi-people"></i> Members</a>
+    <div class="submenu" [class.show]="activeMenu === 'employee'">
+      <a [routerLink]="['/dashboard/employee']"><i class="bi bi-hash"></i> My Team Members</a>
+      <a *ngIf="this.user.sub.is_admin"  [routerLink]="['/dashboard/employee/create']"><i class="bi bi-person-add"></i> Create Member</a>
+    </div>
+  </div>
+  <br>
+  <div>
+    <a class="menu-header" (click)="toggleSubmenu('project')"><i class="bi bi-folder"></i> Projects</a>
+    <div class="submenu" [class.show]="activeMenu === 'project'">
+      <a [routerLink]="['/dashboard/project']"><i class="bi bi-hash"></i> Our Projects</a>
+      <a *ngIf="this.user.sub.is_admin"  [routerLink]="['/dashboard/project/create']"><i class="bi bi-folder-plus"></i> Create Project</a>
+    </div>
+  </div>
+  <br>
+  <div>
+    <a class="menu-header" (click)="toggleSubmenu('customer')"><i class="bi bi-people-fill"></i> Customer</a>
+    <div class="submenu" [class.show]="activeMenu === 'customer'">
+      <a [routerLink]="['/dashboard/customer']"><i class="bi bi-hash"></i> Our Customer</a>
+      <a *ngIf="this.user.sub.is_admin"  [routerLink]="['/dashboard/customer/create']"><i class="bi bi-person-add"></i> Create Customer</a>
+    </div>
+  </div>
+  <br>
+  <div>
+    <a class="menu-header" (click)="toggleSubmenu('docs')"><i class="bi bi-file-text-fill"></i> My Docs</a>
+    <div class="submenu" [class.show]="activeMenu === 'docs'">
+      <a [routerLink]="['/dashboard/docs/sql']"><i class="bi bi-hash"></i> SQL Docs</a>
+      <a [routerLink]="['/dashboard/docs/node']"><i class="bi bi-hash"></i> Node Docs</a>
+    </div>
+  </div>
+  <br>
+  <div>
+    <a class="menu-header"><i class="bi bi-patch-question-fill"></i> Help</a>
+  </div>
+  <br>
+  <div>
+    <a class="menu-header"><i class="bi bi-bell-fill"></i> Release Note</a>
+  </div>
+  <br>
+</div>

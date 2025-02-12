@@ -1,0 +1,150 @@
+<div style="text-align: center;">
+  <h3>Project Update</h3>
+</div>
+
+<div class="col-md-8 offset-md-2">
+  <div class="card">
+    <div class="card-body">
+      <form (ngSubmit)="updateProject()">
+        <div class="form-group">
+          <input
+            placeholder="Project name"
+            type="text"
+            class="form-control"
+            id="name"
+            [(ngModel)]="project.name"
+            name="name"
+            required
+          />
+        </div>
+
+   
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group mt-2">
+              <label for="project_start_date">Start Date</label>
+              <input
+                type="date"
+                class="form-control"
+                id="project_start_date"
+                [(ngModel)]="project.project_start_date"
+                name="project_start_date"
+                required
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group mt-2">
+              <label for="project_end_date">End Date</label>
+              <input
+                type="date"
+                class="form-control"
+                id="project_end_date"
+                [(ngModel)]="project.project_end_date"
+                name="project_end_date"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group mt-2">
+          <label for="skillsString">Skills</label>
+          <input
+            type="text"
+            class="form-control"
+            id="skillsString"
+            [(ngModel)]="skillsString"
+            name="skillsString"
+            required
+          />
+        </div>
+
+        <div class="form-group mt-2">
+          <label for="requirements">Requirements</label>
+          <textarea
+            style="height: 300px;"
+            class="form-control"
+            id="requirements"
+            [(ngModel)]="project.requirements"
+            name="requirements"
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="form-control btn-primary mt-3">Save</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-8 offset-md-2 mt-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group mt-2">
+        <label for="department">Team</label>
+        <select
+          class="form-control"
+          id="department"
+          name="department"
+          [(ngModel)]="project.department.id"
+          required
+        >
+          <option *ngFor="let department of departments" [value]="department.id">
+            {{ department.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="col-md-8 offset-md-2 mt-3">
+  <div class="card">
+    <div class="card-body">
+      <div class="form-group mt-2">
+        <label for="department">Customer</label>
+        <select
+          class="form-control"
+          id="department"
+          name="department"
+          [(ngModel)]="project.customer.id"
+          required
+        >
+          <option *ngFor="let customer of customers" [value]="customer.id">
+            {{ customer.firstname + ' ' + customer.lastname }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="col-md-8 offset-md-2 mt-3">
+    <div class = "card">
+      <div class = "card-body">
+        
+        <div class = "form-group">
+          <div class="row">
+            <div *ngFor="let employee of project.employees" class="col-md-6">
+              <div class="card employee-card">
+                <div class="card-body align-items-center">
+                  <img src = "http://localhost:3000/upload-picture/{{employee.avatar}}"
+                       alt="Employee Avatar" class="employee-avatar rounded-circle me-3">
+                  
+                  <div>
+                    <h5 class="mb-1">{{ employee.firstname }} {{ employee.lastname }}</h5>
+                    <p class="mb-1"><strong>Role:</strong> {{ employee.role }}</p>
+                    <p class="mb-1"><strong>Email:</strong> {{ employee.email }}</p>
+                    <p class="mb-0"><strong>Skills:</strong> {{ employee.skills.join(', ') }}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+    

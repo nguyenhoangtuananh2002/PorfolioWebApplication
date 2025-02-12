@@ -1,0 +1,367 @@
+  <div class="container-fluid" style="padding-top: 10px;">
+    <form (ngSubmit)="addEmployee()">
+      <div class = "row">
+        <div class = "col-4 p-0">
+          <div class="avatar-container" style="justify-content: center; padding-top: 10px;">
+            <div style="text-align: center;">
+              <img src="http://localhost:3000/upload-picture/{{newEmployee.avatar}}" alt="Avatar Preview" style="width: 350px; height: 350px; border-radius: 50%;" />
+              <div class = "mb-3">
+                <label class = "form-label" for ="avatar"> Avatar</label>
+                <input
+                id="avatar"
+                name="avatar"
+                (change)="onFileSelect($event)"
+                type="file"
+                class="form-control"
+                required
+              >
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <div class = "col-8">
+          <h3>Employee Information</h3>
+          <hr>
+          <div class = "row">
+            <div class = "col">
+              <div class = "mb-3">
+                <label class = "form-label" for = "firstname">First name <span style="color: red;">(*)</span></label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="firstname"
+                    [(ngModel)]="newEmployee.firstname"
+                    name="firstname"
+                    required
+                  />
+              </div>
+            </div>
+            <div class = "col">
+              <div class = "mb-3">
+                <label class = "form-label" for = "lastname">Last name <span style="color: red;">(*)</span></label>
+                <input
+                    type="text"
+                    class="form-control"
+                    id="lastname"
+                    [(ngModel)]="newEmployee.lastname"
+                    name="lastname"
+                    required
+                  />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class="mb-3">
+                <label for="gender" class="form-label">Gender</label>
+                <div class="form-check">
+                  <input
+                    type="radio"
+                    id="male"
+                    name="gender"
+                    value="male"
+                    [(ngModel)]="newEmployee.gender"
+                    class="form-check-input"
+                  />
+                  <label for="male" class="form-check-label">Male</label>
+                </div>
+                <div class="form-check">
+                  <input
+                    type="radio"
+                    id="female"
+                    name="gender"
+                    value="female"
+                    [(ngModel)]="newEmployee.gender"
+                    class="form-check-input"
+                  />
+                  <label for="female" class="form-check-label">Female</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class = "mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input
+                  placeholder="Email"
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  name="email"
+                  [(ngModel)]="newEmployee.email"
+                  required
+                />
+              </div>
+            </div>
+            <div class="col">
+              <div class = "mb-3">
+                <label for="role" class="form-label">Role</label>
+                <input
+                placeholder="Role"
+                type="text"
+                class="form-control"
+                id="role"
+                name="role"
+                [(ngModel)]="newEmployee.role"
+                required
+              />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class = "mb-3">
+                <label for="skills" class="form-label">Skills (Comma Separated)</label>
+                <textarea
+                  placeholder="Skills (Comma Separated)"
+                  type="text"
+                  class="form-control"
+                  id="skills"
+                  name="skills"
+                  [(ngModel)]="newEmployee.skills"
+                  required
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class = "row">
+            <div class = "col">
+              <div class = "mb-3">
+                <label for="project">Project</label>
+                <select
+                id ="project"
+                name="project"
+                class = "form-control"
+                [(ngModel)] = "newEmployee.project"
+                >
+                <option value = '' disabled selected>Assign Project</option>
+                <option [ngValue]="null">Assign Later</option>
+                <option *ngFor="let project of projects" [value]="project.id">{{project.name}}</option>
+              </select>
+              </div>
+            </div>
+            <div class = "col">
+              <div class = "mb-3">
+                <label for="project">Team</label>
+              <select
+              id ="project"
+              name="project"
+              class = "form-control"
+              [(ngModel)] = "newEmployee.department"
+              >
+              <option value = '' disabled selected>My Team</option>
+              <option [ngValue]="null">Assign Later</option>
+              <option *ngFor="let department of departments" [value]="department.id">{{department.name}}</option>
+            </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <div class = "mb-3">
+                <label for="is_admin" class="form-label">Are you admin?</label>
+              <select
+                name="is_admin"
+                id="is_admin"
+                [(ngModel)]="newEmployee.is_admin"
+                class="form-control"
+                required
+              >
+                <option [ngValue]="true">Yes, I am</option>
+                <option [ngValue]="false">No, I am not</option>
+              </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class = "col-2">
+              <div class = "mb-3">
+                <button type="submit" class=" form-control btn btn-primary mt-3">Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+  <!-- <div class="row">
+    <div class="col-md-8 offset-md-2">
+      <div class="card">
+        <div class="card-body">
+          <form (ngSubmit)="addEmployee()">
+            <div class = "form-group" style="text-align: center;">
+              <label for = "avatar" ><h3>Avatar</h3></label>
+              <input
+              id = "avatar"
+              name = "avatar"
+              (change)="onFileSelect($event)"
+              type = "file"
+              class = "form-control"
+              required
+              >
+              <br>
+              <div style="text-align: center;">
+                <img [src]="avatarPreview" alt="Avatar Preview" style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;" />
+
+              </div>
+            </div>
+            <br><hr>
+            <div class ="form-group" style="text-align: center;">
+              <label for = "avatar" style="text-align: center;" ><h3>Personal Infomation</h3></label>
+            </div>
+            <div class = "row">
+              <div class = "col">
+                  <div class="form-group mt-2">
+                  <input
+                    placeholder="First name"
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    [(ngModel)]="newEmployee.firstname"
+                    name="firstname"
+                    required
+                  />
+                </div>
+              </div>
+              <div class = "col">
+                <div class="form-group mt-2">
+                  <input
+                    placeholder="Last name"
+                    type="text"
+                    class="form-control"
+                    id="name"
+                    [(ngModel)]="newEmployee.lastname"
+                    name="lastname"
+                    required
+                  />
+                </div>
+              </div>
+            </div>
+            <div class = "form-group mt-2 ">
+              <input
+              placeholder="Password"
+              id = "password"
+              name = "password"
+              [(ngModel)] = "newEmployee.password"
+              class = "form-control"
+              required
+              type="password"
+              >
+            </div>
+            <div class="form-group mt-2" style="text-align: center;">
+              <div class="form-check">
+                <input
+                  type="radio"
+                  id="male"
+                  name="gender"
+                  value="male"
+                  [(ngModel)]="newEmployee.gender"
+                  class="form-check-input"
+                />
+                <label for="male" class="form-check-label">Male</label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  id="female"
+                  name="gender"
+                  value="female"
+                  [(ngModel)]="newEmployee.gender"
+                  class="form-check-input"
+                />
+                <label for="female" class="form-check-label">Female</label>
+              </div>
+            </div>
+
+
+            <div class="form-group mt-2">
+              <input
+                placeholder="Email"
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                [(ngModel)]="newEmployee.email"
+                required
+              />
+            </div>
+
+            <div class = "form-group mt-2">
+              <input
+              placeholder="Skills (Comma Seperated)"
+              type="text"
+              class="form-control"
+              id = "skills"
+              name ="skills"
+              [(ngModel)] = "newEmployee.skills"
+              required
+              >
+            </div>
+
+            <div class = "form-group mt-2">
+              <input
+              placeholder="role"
+              type="text"
+              class="form-control"
+              id = "role"
+              name ="role"
+              [(ngModel)] = "newEmployee.role"
+              required
+              >
+            </div>
+
+            <br><hr>
+
+            <div class ="form-group" style="text-align: center;">
+              <label for = "avatar" style="text-align: center;" ><h3>Additional Infomation</h3></label>
+            </div>
+
+            <div class = "form-group mt-2" >
+              <label for="project">Project</label>
+                <select
+                id ="project"
+                name="project"
+                class = "form-control"
+                [(ngModel)] = "newEmployee.project"
+                >
+                <option value = '' disabled selected>Assign Project</option>
+                <option [ngValue]="null">Assign Later</option>
+                <option *ngFor="let project of projects" [value]="project.id">{{project.name}}</option>
+              </select>
+              </div>
+
+            <div class = "form-group mt-2" >
+            <label for="project">Team</label>
+              <select
+              id ="project"
+              name="project"
+              class = "form-control"
+              [(ngModel)] = "newEmployee.department"
+              >
+              <option value = '' disabled selected>My Team</option>
+              <option [ngValue]="null">Assign Team</option>
+              <option *ngFor="let department of departments" [value]="department.id">{{department.name}}</option>
+            </select>
+            </div>
+
+            <div class = "form-group mt-2">
+              <label for="is_admin">Are you admin? </label>
+              <select
+                name = "is_admin"
+                id = "is_admin"
+                [(ngModel)] = "newEmployee.is_admin"
+                class = "form-control"
+                required
+              >
+                <option value = 'true'>Yes,I am</option>
+                <option value = 'false'>No,I am not</option>
+              </select>
+            </div>
+            <button type="submit" class=" form-control btn btn-primary mt-3">Save</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div> -->

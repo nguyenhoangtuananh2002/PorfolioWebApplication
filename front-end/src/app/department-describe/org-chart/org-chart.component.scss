@@ -1,0 +1,116 @@
+.chart-wrap {
+  width: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding-top: 50px;
+}
+.org-top {
+  width: 50%;
+  margin: 0 auto;
+  background: #f1f1f1;
+  padding: 10px;
+  height: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  border: #ccc solid 2px;
+  position: relative;
+  z-index: 1;
+}
+
+.org-top a,
+.org-mid a {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: bold;
+  width: 100%;
+  text-align: center;
+  float: left;
+  color: #2780e3;
+}
+
+.org-top p,
+.org-mid p {
+  margin: 0;
+  padding: 0;
+  font-size: 13px;
+  font-weight: normal;
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+
+.split-lineBox {
+  position: relative;
+  width: 100%;
+  float: left;
+  height: 130px;
+}
+
+.org-spliter {
+  width: 2px;
+  height: 130px;
+  background: #ccc;
+  position: absolute;
+  top: 0;
+  right: 50%;
+}
+
+.org-mid {
+  background: #f1f1f1;
+  padding: 10px;
+  height: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  border: #ccc solid 2px;
+  width: 40%;
+  float: left;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.org-mid-bot {
+  width: 100% !important;
+  float: left !important;
+}
+
+.vertical-split {
+  width: 50%;
+  height: 25px;
+  border-top: #ccc solid 2px;
+  margin: 0 auto;
+  border-left: #ccc solid 2px;
+  border-right: #ccc solid 2px;
+  overflow: hidden;
+}
+
+.org-vert-cent {
+  width: 50%;
+  height: 2px;
+  background: #ccc;
+  position: absolute;
+  top: 50%;
+  z-index: 0;
+}
+
+.padding-top20 {
+  padding-top: 20px;
+}
+
+.hor-spliter {
+  width: 17%;
+  position: absolute;
+  height: 60px;
+  border-right: #ccc solid 2px;
+  top: 0;
+}
+
+.org-ver-bot {
+  position: absolute;
+  top: 46%;
+  width: 10%;
+  height: 2px;
+  background: #ccc;
+  left: 78px;
+}

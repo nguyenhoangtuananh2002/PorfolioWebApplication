@@ -1,0 +1,105 @@
+<div class="container-fluid" style="padding-left: 10px;">
+  <form (ngSubmit)="addProject()">
+    <div class="row">
+      <div class="col-12 col-md-4">
+        <div class="mb-3">
+          <label class="form-label" for="name">Project Name <span style="color: red;">(*)</span></label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            [(ngModel)]="newProject.name"
+            name="name"
+            required
+          >
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="mb-3">
+          <label class="form-label" for="department">Project Department <span style="color: red;">(*)</span></label>
+          <select class="form-control" id="department" name="department" [(ngModel)]="newProject.department.id" required>
+            <option value='' disabled selected>Select Department</option>
+            <option *ngFor="let department of departments" [value]="department.id">
+              {{ department.name }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="mb-3">
+          <label class="form-label" for="customer">Project Customer <span style="color: red;">(*)</span></label>
+          <select class="form-control" id="customer" name="customer" [(ngModel)]="newProject.customer.id" required>
+            <option value="" disabled selected>Select Customer</option>
+            <option *ngFor="let customer of customers" [value]="customer.id">
+              {{ customer.firstname + ' ' + customer.lastname }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="mb-3">
+          <label class="form-label" for="project_start_date">Project Start <span style="color: red;">(*)</span></label>
+          <input
+            type="date"
+            class="form-control"
+            id="project_start_date"
+            [(ngModel)]="newProject.project_start_date"
+            name="project_start_date"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="mb-3">
+          <label class="form-label" for="project_end_date">Project End <span style="color: red;">(*)</span></label>
+          <input
+            type="date"
+            class="form-control"
+            id="project_end_date"
+            [(ngModel)]="newProject.project_end_date"
+            name="project_end_date"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-12 col-md-4">
+        <div class="mb-3">
+          <label class="form-label">Project Skills <span style="color: red;">(*)</span></label>
+          <input
+            placeholder="Skills (separate by comma)"
+            type="text"
+            class="form-control"
+            id="skillsString"
+            [(ngModel)]="skillsString"
+            name="skillsString"
+            required
+          />
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="mb-3">
+          <label class="form-label">Project Requirements <span style="color: red;">(*)</span></label>
+          <textarea
+            placeholder="Requirements"
+            type="text"
+            class="form-control"
+            id="requirements"
+            [(ngModel)]="newProject.requirements"
+            name="requirements"
+            required
+          ></textarea>
+        </div>
+      </div>
+      <div class = "col-4">
+        <div class = "row">
+          <div class = "col">
+            <button type="submit" class="form-control btn-primary mt-3">Save</button>
+          </div>
+          <div class = "col">
+            <button type="button" id = "backbtn" name = "backbtn" class = "form-control btn-danger mt-3">Back</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,46 @@
+[
+  {
+    "id": "af84e38f-aa19-4be1-af74-1ed56b077699",
+    "avatar": "",
+    "firstname": "user2",
+    "lastname": "aa@gmail.com",
+    "email": "",
+    "birthday": "2002-05-11",
+    "skills": "WEB.ANGULAR",
+    "role": "Developer",
+    "is_admin": true
+  },
+  {
+    "id": "80b6f987-0b40-4a43-8769-cca9198b4a85",
+    "avatar": "",
+    "firstname": "aaaa",
+    "lastname": "bbbb",
+    "email": "cc@gmail.com",
+    "birthday": "2004-02-22",
+    "skills": "Angular,CSS,,HTML",
+    "role": "Developer",
+    "is_admin": true
+  },
+  {
+    "id": "cbe23a5f-a903-4b97-9429-3c03682ff28f",
+    "avatar": "",
+    "firstname": "Nguyễn",
+    "lastname": "Anh",
+    "email": "nguyenhoangtuananh2002@gmail.com",
+    "birthday": "2002-01-19",
+    "skills": "Angular,SCSS",
+    "role": "Developer",
+    "is_admin": true
+  },
+  {
+    "id": "2b1740a8-90a8-49ad-be30-98209e8138b0",
+    "avatar": "",
+    "firstname": "Nguyễn",
+    "lastname": "Anh",
+    "email": "nguyenhoangtuananh2002@gmail.com",
+    "birthday": "2023-01-11",
+    "skills": "Angular,SCSS",
+    "role": "Developer",
+    "is_admin": true
+  }
+]

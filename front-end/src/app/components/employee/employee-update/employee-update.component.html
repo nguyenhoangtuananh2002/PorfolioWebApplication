@@ -1,0 +1,240 @@
+<div class="container-fluid" style="padding-left: 10px;">
+  <form (ngSubmit)="updateEmployee()">
+    <div class="row" style="height: 100vh;">
+      <div class="col-4 p-0">
+        <div class = "mb-3">
+          <div class="avatar-container" style="justify-content: center">
+            <div style="text-align: center; padding-top: 10%;">
+              <img src="http://localhost:3000/upload-picture/{{employee.avatar}}" alt="Avatar Preview" style="width: 350px; height: 350px; border-radius: 50%;" />
+              <label for = "avatar" class = "form-control">Avatar</label>
+              <input
+                id="avatar"
+                name="avatar"
+                (change)="onFileSelect($event)"
+                type="file"
+                class="form-control"
+                required
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-8">
+        <h3>Employee Information</h3>
+        <hr>
+        <div class="row">
+          <div class="col">
+            <div class = "mb-3">
+              <label for="firstname" class="form-label">First name</label>
+              <input
+                placeholder="First name"
+                type="text"
+                class="form-control"
+                id="firstname"
+                [(ngModel)]="employee.firstname"
+                name="firstname"
+                required
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div class = "mb-3">
+              <label for="lastname" class="form-label">Last name</label>
+              <input
+                placeholder="Last name"
+                type="text"
+                class="form-control"
+                id="lastname"
+                [(ngModel)]="employee.lastname"
+                name="lastname"
+                required
+              />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+              <label for="gender" class="form-label">Gender</label>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  id="male"
+                  name="gender"
+                  value="male"
+                  [(ngModel)]="employee.gender"
+                  class="form-check-input"
+                />
+                <label for="male" class="form-check-label">Male</label>
+              </div>
+              <div class="form-check">
+                <input
+                  type="radio"
+                  id="female"
+                  name="gender"
+                  value="female"
+                  [(ngModel)]="employee.gender"
+                  class="form-check-input"
+                />
+                <label for="female" class="form-check-label">Female</label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="row">
+          <div class="col-8">
+            <div class = "mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input
+                placeholder="Password"
+                id="password"
+                name="password"
+                [(ngModel)]="employee.password"
+                class="form-control"
+                required
+                type="password"
+                disabled
+              />
+            </div>
+          </div>
+        </div> -->
+        <div class="row">
+          <div class="col">
+            <div class = "mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input
+                placeholder="Email"
+                type="email"
+                class="form-control"
+                id="email"
+                name="email"
+                [(ngModel)]="employee.email"
+                required
+              />
+            </div>
+          </div>
+          <div class="col">
+            <div class = "mb-3">
+              <label for="role" class="form-label">Role</label>
+              <input
+              placeholder="Role"
+              type="text"
+              class="form-control"
+              id="role"
+              name="role"
+              [(ngModel)]="employee.role"
+              required
+            />
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class = "mb-3">
+              <label for="skills" class="form-label">Skills (Comma Separated)</label>
+              <textarea
+                placeholder="Skills (Comma Separated)"
+                type="text"
+                class="form-control"
+                id="skills"
+                name="skills"
+                [(ngModel)]="employee.skills"
+                required
+              ></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <div class = "mb-3">
+              <label for="project" class="form-label">Projects Assign</label>
+            <p *ngIf="employee.project && employee.project.name">
+              <strong>Current Project:</strong> {{ employee.project.name }}
+            </p>
+            <select id="project" name="project" class="form-control" [(ngModel)]="employee.project" required>
+              <option [ngValue]="null">Not Assigned</option>
+              <option *ngFor="let project of projects" [ngValue]="project">{{ project.name }}</option>
+            </select>
+            </div>
+          </div>
+          <div class="col">
+            <div class = "mb-3">
+              <label for="department" class="form-label">Team Assign</label>
+            <p *ngIf="employee.department && employee.department.name">
+              <strong>Current Team:</strong> {{ employee.department.name }}
+            </p>
+            <select id="department" name="department" class="form-control" [(ngModel)]="employee.department" required>
+              <option [ngValue]="null">Not Assigned</option>
+              <option *ngFor="let department of departments" [ngValue]="department">{{ department.name }}</option>
+            </select>
+            </div>
+          </div>
+        </div>
+
+          <div class="row">
+            <div class="col">
+              <div class = "mb-3">
+                <label for="is_admin" class="form-label">Are you admin?</label>
+              <select
+                name="is_admin"
+                id="is_admin"
+                [(ngModel)]="employee.is_admin"
+                class="form-control"
+                required
+              >
+                <option [ngValue]="true">Yes, I am</option>
+                <option [ngValue]="false">No, I am not</option>
+              </select>
+              </div>
+            </div>
+          </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="mb-3">
+              <label class="form-label">About Me</label>
+              <angular-editor [config]="editorConfig" [(ngModel)]="employee.aboutMe" name="aboutMe"></angular-editor>
+            </div>
+          </div>
+        </div>
+
+        <div class = "row">
+          <div class ="col">
+            <div class = "mb-3">
+              <label class = "form-label" for = "password">New Password</label>
+              <input
+              type = "password"
+              id = "password"
+              class = "form-control"
+              name = "password"
+              [(ngModel)] = "employee.password"
+              >
+            </div>
+          </div>
+          <div class ="col">
+            <div class = "mb-3">
+              <label class = "form-label" for = "passwordReqpeat">Repeat New Password</label>
+              <input
+              type = "password"
+              id = "passwordReqpeat"
+              class = "form-control"
+              name = "passwordReqpeat"
+              [(ngModel)] = "passwordRepeat"
+              >
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-4 d-flex gap-4">
+            <button type="submit" class="btn btn-primary mt-3 flex-grow-1">Save</button>
+            <button type="button" class="btn btn-danger mt-3 flex-grow-1"
+              [routerLink]="['/dashboard/employee/delete', employee.id]">
+              Delete
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </form>
+</div>

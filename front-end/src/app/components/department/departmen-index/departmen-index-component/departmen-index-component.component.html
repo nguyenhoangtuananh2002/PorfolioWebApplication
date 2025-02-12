@@ -1,0 +1,42 @@
+
+<div class='container'>
+  <table id = "departmentsDataTable" class="table  fixed-width-table">
+    <thead>
+      <tr>
+        <th style="width: 300px;">Name</th>
+        <th style="width: 300px;">Overview</th>
+        <th style="width: 300px;">createdDate</th>
+
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let department of departments">
+        <td>
+        <a
+          [routerLink]="['/dashboard/department/update', department.id]">
+          {{ department.name }}
+        </a>
+        </td>
+
+        <td style="width: 300px; cursor: pointer;" class="ellipsis" (click)="showForm(department.overview) ">{{department.overview}}</td>
+        <div id="popupForm" [class.active]="isFormVisible" class = "form-popup">
+          <form>
+            <button type="button" (click)="showForm(department.overview)" >[X]</button>
+            <br><br>
+            <h1 style="font-weight: bold;">Overview</h1>
+            <br>
+            <hr>
+            <p>
+              {{currentOverview}}
+            </p>
+          </form>
+        </div>
+        <td style="width: 300px;">{{ department.createdAt }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+

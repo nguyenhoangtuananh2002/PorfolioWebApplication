@@ -1,0 +1,26 @@
+
+.container {
+  display: flex;
+  width: 100%;
+  padding-top: 30px;
+  overflow-x: auto;
+  overflow-y: auto;
+}
+.container {
+  overflow-x: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+.about-me {
+  display: -webkit-box;
+  width: 200px;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,26 @@
+
+<div class = "container">
+  <input type="text" [(ngModel)]="searchText" placeholder="Search..." />
+</div>
+<div class='container'>
+  <table id = "customersDataTable" class="table  fixed-width-table">
+    <thead>
+      <tr>
+        <th style="width: 300px;">Name</th>
+        <th style="width: 300px;">Email</th>
+        <th style="width: 300px;">Gender</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of filterCustomers()">
+        <td>
+          <a
+          [routerLink]="['/dashboard/customer/update', customer.id]">
+          {{ customer.firstname + ' ' + customer.lastname }}
+        </a>
+        <td style="width: 300px;">{{ customer.email }}</td>
+        <td style="width: 300px;">{{ customer.gender }}</td>
+    </tbody>
+  </table>
+</div>
+

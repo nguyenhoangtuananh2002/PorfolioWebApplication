@@ -1,0 +1,1 @@
+$env:Path = "$env:Path;$env:USERPROFILE\node"

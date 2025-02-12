@@ -1,0 +1,13 @@
+[
+  {
+    "id": "08fc3f93-14bc-452d-b418-cd81f75dfa8c",
+    "avatar": "",
+    "firstname": "Uzumaki ",
+    "lastname": "Naruto",
+    "email": "naruto@gmail.com",
+    "birthday": "2004-02-19",
+    "skills": "Angular,CSS,HTML",
+    "role": "Dev",
+    "is_admin": false
+  }
+]

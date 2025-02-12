@@ -1,0 +1,33 @@
+
+  .card {
+    max-width: 100%; // Ensures the card does not overflow
+    margin: 10px; // Adds some space between cards
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Adds subtle shadow
+    border-radius: 8px; // Rounded corners
+    overflow: hidden; // Ensures the image does not overflow
+    transition: transform 0.3s ease, box-shadow 0.3s ease; // Smooth transition on hover
+
+    &:hover {
+      transform: scale(1.05); // Slightly enlarge the card on hover
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); // Increase shadow on hover
+    }
+
+    .card-body {
+      padding: 15px;
+    }
+
+    .card-text {
+      font-size: 0.875rem; // Smaller font size for the text
+      color: #555; // Dark gray color for text
+      margin-bottom: 5px; // Adds space between text elements
+    }
+
+
+  }
+
+
+  @media (max-width: 768px) {
+    .col-md-6 {
+      flex: 1 1 calc(100% - 20px); // 1 card per row on smaller screens
+    }
+  }

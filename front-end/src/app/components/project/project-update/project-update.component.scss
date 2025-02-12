@@ -1,0 +1,88 @@
+.container {
+  margin-top: 30px;
+}
+.employee-card {
+  background: #f8f9fa;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  .employee-avatar {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+  }
+}
+
+.card {
+  max-width: 100%; // Ensures the card does not overflow
+  margin: 10px; // Adds some space between cards
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); // Adds subtle shadow
+  border-radius: 8px; // Rounded corners
+  overflow: hidden; // Ensures the image does not overflow
+  transition: transform 0.3s ease, box-shadow 0.3s ease; // Smooth transition on hover
+
+  &:hover {
+    transform: scale(1.05); // Slightly enlarge the card on hover
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); // Increase shadow on hover
+  }
+
+  .avatar-img {
+    border-radius: 50%; // Makes the avatar circular
+    height: 150px; // Set a fixed height for the image
+    width: 150px; // Set a fixed width for the image
+    object-fit: cover; // Ensures the image covers the circle area
+    margin: 0 auto; // Centers the avatar image
+  }
+
+  .card-body {
+    padding: 15px; // Adds padding inside the card
+    text-align: left; // Centers the text
+  }
+
+  .card-title {
+    font-size: 1.25rem; // Slightly smaller font size for the title
+    font-weight: bold; // Makes the title bold
+    margin-bottom: 10px; // Adds space below the title
+  }
+
+  .card-text {
+    font-size: 0.875rem; // Smaller font size for the text
+    color: #555; // Dark gray color for text
+    margin-bottom: 5px; // Adds space between text elements
+  }
+
+  ul {
+    list-style-type: none; // Removes default list bullets
+    padding-left: 0; // Removes padding
+    margin-top: 5px; // Adds space above the list
+  }
+
+  li {
+    font-size: 0.875rem; // Smaller font size for skills
+    color: #777; // Lighter gray color for skills
+  }
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.col-md-6 {
+  flex: 1 1 calc(50% - 20px); // 2 cards per row on medium screens
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .col-md-6 {
+    flex: 1 1 calc(100% - 20px); // 1 card per row on smaller screens
+  }
+}

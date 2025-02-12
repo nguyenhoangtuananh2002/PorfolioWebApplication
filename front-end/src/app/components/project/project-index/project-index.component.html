@@ -1,0 +1,60 @@
+
+  <table id = "projectDataTable" class="table  fixed-width-table">
+    <thead>
+      <tr>
+        <th style="width: 300px;">Name</th>
+        <th style="width: 300px;">Department</th>
+        <th style="width: 300px;">Customer</th>
+        <th style="width: 300px;">Employees</th>
+        <th style="width: 300px;">Skills</th>
+        <th style="width: 400px;">Requirements</th>
+        <th style="width: 300px;">Start Date</th>
+        <th style="width: 300px;">End Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of projects">
+        <td>
+          <a 
+          [routerLink]="['/dashboard/project/update', project.id]">
+          {{ project.name }}
+        </a>
+        </td>
+        <td style="width: 300px;">{{ project.department.name}}</td>
+        <td style="width: 300px;">{{ project.customer.firstname + ' ' + project.customer.lastname}}</td>
+        <td>
+          <table style="width: 300px;" class="table">
+            <tr *ngFor="let emp of project.employees">
+              <td style="padding: 6px;">{{ emp.firstname + " " + emp.lastname }}</td>
+            </tr>
+          </table>
+        </td>
+        <td>
+          <table style="width: 300px;" class="table">
+            <tr *ngFor="let skill of project.skills">
+              <td style="padding: 6px;">{{ skill }}</td>
+            </tr>
+          </table>
+        </td>
+        <td style="width: 300px; cursor: pointer;" class="ellipsis" (click)="showForm(project.requirements) ">{{project.requirements}}</td>
+        <div id="popupForm" [class.active]="isFormVisible" class = "form-popup">
+          <form>
+            <button type="button" (click)="showForm(project.requirements)" >[X]</button>
+            <br><br>
+            <h1 style="font-weight: bold;">Requirements</h1>
+            <br>
+            <hr>
+            <p>
+              {{currentRequirements}}
+            </p>
+          </form>
+        </div>
+        <td style="width: 300px;">{{ project.createdAt}}</td>
+        <td style="width: 300px;">{{ project.endAt }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+
+
+
